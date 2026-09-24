@@ -25,6 +25,15 @@ if (!fs.existsSync(htmlPath)) {
 let html = fs.readFileSync(htmlPath, 'utf8');
 let changed = 0;
 
+// Старые шаблоны/презентации могли подключать Inter с Google Fonts —
+// теперь шрифт свой (shared/fonts/inter/), эти теги больше не нужны и
+// только создают лишнюю сетевую зависимость.
+const googleFontsRe = /\s*<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com">\n?|\s*<link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin>\n?|\s*<link href="https:\/\/fonts\.googleapis\.com\/css2\?family=Inter[^"]*" rel="stylesheet">\n?/g;
+if (googleFontsRe.test(html)) {
+  html = html.replace(googleFontsRe, '\n');
+  changed++;
+}
+
 // Важно: сначала JS, потом CSS. Комментарий-документация в начале deck.css
 // сам содержит примеры тегов <link>/<script> — если инлайнить CSS первым,
 // regex для <script> находит этот пример внутри уже вставленного CSS
@@ -38,7 +47,15 @@ if (jsSrcRe.test(html)) {
 
 const cssLinkRe = /<link rel="stylesheet" href="[^"]*shared\/css\/deck\.css"\s*\/?>/;
 if (cssLinkRe.test(html)) {
-  const css = fs.readFileSync(path.join(root, 'shared', 'css', 'deck.css'), 'utf8');
+  let css = fs.readFileSync(path.join(root, 'shared', 'css', 'deck.css'), 'utf8');
+  // встраиваем сами файлы шрифтов как base64 — относительный url() из
+  // deck.css резолвился бы не туда, если просто вставить текст CSS в
+  // <style> внутри html/<slug>/index.html (другая база для относительных путей)
+  css = css.replace(/url\('\.\.\/fonts\/inter\/([^']+\.woff2)'\)/g, (m, filename) => {
+    const fontPath = path.join(root, 'shared', 'fonts', 'inter', filename);
+    const data = fs.readFileSync(fontPath).toString('base64');
+    return `url('data:font/woff2;base64,${data}')`;
+  });
   html = html.replace(cssLinkRe, `<style>\n${css}\n</style>`);
   changed++;
 }

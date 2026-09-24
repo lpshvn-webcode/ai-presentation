@@ -26,6 +26,7 @@ fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
 const browser = await chromium.launch();
 const page = await browser.newPage();
 await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle' });
+await page.evaluate(() => document.fonts.ready); // дождаться реальной загрузки Inter, иначе печатает системным шрифтом
 await page.emulateMedia({ media: 'print' });
 await page.pdf({
   path: pdfPath,
