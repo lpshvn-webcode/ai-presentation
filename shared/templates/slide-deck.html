@@ -1,49 +1,73 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <title>Название презентации</title>
-  <link rel="stylesheet" href="../../shared/css/print.css" />
-  <style>
-    /* стили конкретной презентации — поверх shared/css/print.css */
-    body {
-      font-family: system-ui, sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-    }
-
-    .slide {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 64px;
-    }
-
-    .slide h1 {
-      font-size: 48px;
-      margin: 0 0 16px;
-    }
-
-    .slide p {
-      font-size: 24px;
-      opacity: 0.8;
-    }
-  </style>
+<meta charset="utf-8" />
+<title>Название презентации</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/css/deck.css" />
 </head>
 <body>
 
-  <section class="slide">
-    <h1>Заголовок слайда 1</h1>
-    <p>Текст слайда</p>
-  </section>
+<div id="progress"></div>
 
-  <section class="slide">
-    <h1>Заголовок слайда 2</h1>
-    <p>Текст слайда</p>
-  </section>
+<div id="stage">
+  <div id="deck">
 
-  <!-- добавляй .slide секции по необходимости -->
+    <!-- 01 — ТИТУЛЬНЫЙ СЛАЙД -->
+    <section class="slide dark active">
+      <div class="top-row"><div class="top-meta">Название проекта · Тема презентации</div></div>
+      <div class="body-area">
+        <div class="kicker">Подзаголовок-категория</div>
+        <h1 class="headline xl">Главный заголовок —<br>с акцентом на <span class="accent">ключевой мысли</span></h1>
+        <p class="lede">Короткое пояснение того, о чём презентация и зачем она нужна читателю.</p>
+      </div>
+      <div class="bottom-row" style="justify-content:flex-end;">
+        <span class="slide-no"><b class="num">01</b> / 02</span>
+      </div>
+    </section>
 
+    <!-- 02 — ПРИМЕР СВЕТЛОГО СЛАЙДА С ДОКАЗАТЕЛЬСТВОМ (СКРИНШОТ) -->
+    <section class="slide light">
+      <div class="top-row"><div class="top-meta">Раздел презентации</div></div>
+      <div class="body-area">
+        <div class="cols cols-2" style="gap:70px; align-items:center;">
+          <div>
+            <div class="kicker">Категория находки</div>
+            <h1 class="headline">Заголовок с <span class="accent">акцентом</span></h1>
+            <p class="lede">Развёрнутое описание находки или тезиса.</p>
+            <div class="callout">
+              <div class="step-num">Рекомендация</div>
+              <div class="item-desc" style="max-width:100%;">Что стоит сделать дальше.</div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="shot" src="assets/example.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <span>Короткий вывод-подпись, который остаётся в памяти</span>
+        <span class="slide-no"><b class="num">02</b> / 02</span>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div id="nav-arrows">
+  <div class="nav-btn" id="prev-btn">‹</div>
+  <div class="nav-btn" id="next-btn">›</div>
+</div>
+<div id="dots"></div>
+<div id="hud">
+  <span class="counter"><span id="cur">1</span> / <span id="total">1</span></span>
+  <button id="fs-btn">⛶ Экран</button>
+  <button id="print-btn">🖨 PDF</button>
+</div>
+
+<script src="../../shared/js/deck.js" defer></script>
 </body>
 </html>

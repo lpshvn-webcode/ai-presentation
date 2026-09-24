@@ -1,0 +1,209 @@
+/*
+  Дизайн-система для презентаций. Разобрана из референса
+  shared/references/audit-deck-reference.html — тёмные/светлые слайды
+  16:9, Inter, синий акцент, минималистичная типографика.
+
+  Подключение в презентации:
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../shared/css/deck.css">
+    <script src="../../shared/js/deck.js" defer></script>
+
+  Разметка — см. shared/templates/slide-deck.html.
+*/
+
+:root{
+  --accent:#3B82F6;
+  --accent-soft:rgba(59,130,246,.14);
+  --bg-dark:#0A0A0C;
+  --bg-dark-2:#111114;
+  --text-dark:#F5F5F4;
+  --muted-dark:#8B8B94;
+  --line-dark:rgba(255,255,255,.10);
+  --bg-light:#FAFAF8;
+  --text-light:#15151A;
+  --muted-light:#6B6B75;
+  --line-light:rgba(0,0,0,.10);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{height:100%;}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#000;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+#stage{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
+#deck{
+  width:1280px; height:720px; position:relative; transform-origin:center center;
+  box-shadow:0 40px 120px -20px rgba(0,0,0,.8); border-radius:6px; overflow:hidden;
+}
+
+.slide{
+  position:absolute; inset:0; width:1280px; height:720px;
+  display:none; flex-direction:column; padding:64px 76px 48px; opacity:0;
+}
+.slide.active{ display:flex; opacity:1; }
+
+.slide.dark{ background:var(--bg-dark); color:var(--text-dark); }
+.slide.light{ background:var(--bg-light); color:var(--text-light); }
+
+.kicker{
+  font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); display:flex; align-items:center; gap:8px; margin-bottom:14px;
+}
+.kicker::before{ content:''; width:16px; height:1.5px; background:var(--accent); display:inline-block; }
+
+h1.headline{ font-size:46px; font-weight:800; line-height:1.08; letter-spacing:-0.015em; }
+h1.headline.xl{ font-size:52px; }
+.accent{ color:var(--accent); }
+
+.lede{ font-size:16.5px; line-height:1.6; font-weight:400; max-width:620px; margin-top:18px; }
+.dark .lede{ color:#C9C9CE; }
+.light .lede{ color:#4B4B54; }
+
+.muted-dark{ color:var(--muted-dark); }
+.muted-light{ color:var(--muted-light); }
+
+.num{ font-variant-numeric:tabular-nums; }
+
+.top-row{
+  display:flex; align-items:center; justify-content:flex-start;
+  padding-bottom:20px; margin-bottom:36px; border-bottom:1px solid transparent;
+}
+.dark .top-row{ border-color:var(--line-dark); }
+.light .top-row{ border-color:var(--line-light); }
+
+.top-meta{ font-size:12px; font-weight:600; letter-spacing:.02em; }
+.dark .top-meta{ color:var(--muted-dark); }
+.light .top-meta{ color:var(--muted-light); }
+
+.body-area{ flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; }
+
+.bottom-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:18px; margin-top:28px; border-top:1px solid transparent;
+  font-size:12px; font-weight:600;
+}
+.dark .bottom-row{ border-color:var(--line-dark); color:var(--muted-dark); }
+.light .bottom-row{ border-color:var(--line-light); color:var(--muted-light); }
+.bottom-row .slide-no{ font-variant-numeric:tabular-nums; letter-spacing:.04em; }
+.bottom-row .slide-no b{ color:var(--accent); }
+
+.cols{ display:grid; gap:56px; }
+.cols-2{ grid-template-columns:1fr 1fr; }
+.cols-3{ grid-template-columns:repeat(3,1fr); }
+.cols-4{ grid-template-columns:repeat(4,1fr); }
+
+.rule-v{ width:1px; align-self:stretch; }
+.dark .rule-v{ background:var(--line-dark); }
+.light .rule-v{ background:var(--line-light); }
+
+.step-num{ font-size:13px; font-weight:800; color:var(--accent); letter-spacing:.02em; }
+.item-title{ font-size:16px; font-weight:700; margin-top:6px; }
+.item-desc{ font-size:13.5px; line-height:1.5; margin-top:6px; max-width:230px; }
+.dark .item-desc{ color:var(--muted-dark); }
+.light .item-desc{ color:var(--muted-light); }
+
+.stat-big{ font-size:64px; font-weight:800; line-height:1; letter-spacing:-0.02em; }
+.stat-label{ font-size:12.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+
+table.clean{ width:100%; border-collapse:collapse; font-size:14px; }
+table.clean th{
+  text-align:left; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  padding:0 0 12px; border-bottom:1px solid var(--line-dark);
+}
+.light table.clean th{ border-color:var(--line-light); }
+table.clean td{ padding:16px 0; border-bottom:1px solid var(--line-dark); vertical-align:middle; }
+.light table.clean td{ border-color:var(--line-light); }
+table.clean tr:last-child td{ border-bottom:none; }
+table.clean td.r{ text-align:right; }
+
+.pill{
+  display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700;
+  letter-spacing:.04em; padding:5px 12px; border-radius:100px; border:1px solid var(--line-dark);
+}
+.light .pill{ border-color:var(--line-light); }
+
+ul.plain{ list-style:none; }
+ul.plain li{ display:flex; gap:12px; align-items:flex-start; }
+ul.plain li + li{ margin-top:14px; }
+ul.plain .mark{ color:var(--accent); font-weight:800; font-size:15px; line-height:1.5; }
+ul.plain .txt{ font-size:14.5px; line-height:1.55; }
+.dark ul.plain .txt{ color:#D4D4D9; }
+.light ul.plain .txt{ color:#3D3D46; }
+ul.plain .txt b{ color:inherit; font-weight:700; }
+.dark ul.plain .txt b{ color:#fff; }
+.light ul.plain .txt b{ color:#000; }
+
+.card{ border-radius:14px; padding:16px; }
+.dark .card{ background:var(--bg-dark-2); border:1px solid var(--line-dark); }
+.light .card{ background:#fff; border:1px solid var(--line-light); }
+
+.flag{
+  display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+  padding:3px 9px; border-radius:5px; background:var(--accent-soft); color:var(--accent);
+}
+
+.shot{ width:100%; display:block; max-height:420px; object-fit:contain; border-radius:8px; }
+
+.callout{ border-left:2px solid var(--accent); padding-left:18px; margin-top:22px; }
+.callout .step-num{ margin-bottom:6px; }
+
+/* ===== Navigation UI ===== */
+#nav-arrows{ position:fixed; inset:0; pointer-events:none; z-index:50; }
+.nav-btn{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(20,20,24,.55); border:1px solid rgba(255,255,255,.14);
+  color:#fff; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; pointer-events:auto; opacity:0; transition:opacity .2s ease, background .2s ease;
+  backdrop-filter:blur(6px); font-size:18px;
+}
+#stage:hover .nav-btn{ opacity:.55; }
+.nav-btn:hover{ opacity:1 !important; background:var(--accent); }
+#prev-btn{ left:22px; }
+#next-btn{ right:22px; }
+
+#dots{
+  position:fixed; bottom:16px; left:50%; transform:translateX(-50%);
+  display:flex; gap:7px; z-index:50; padding:8px 14px; border-radius:100px;
+  background:rgba(20,20,24,.5); backdrop-filter:blur(6px); opacity:0; transition:opacity .25s ease;
+}
+#stage:hover #dots, #dots.show{ opacity:1; }
+#dots .d{ width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.28); cursor:pointer; transition:.2s; }
+#dots .d.active{ background:var(--accent); width:18px; border-radius:4px; }
+
+#hud{
+  position:fixed; top:16px; right:20px; z-index:50;
+  display:flex; align-items:center; gap:10px;
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:700; color:#fff;
+  opacity:0; transition:opacity .25s ease;
+}
+#stage:hover #hud{ opacity:.85; }
+#hud button{
+  background:rgba(20,20,24,.55); border:1px solid rgba(255,255,255,.14); color:#fff;
+  padding:6px 12px; border-radius:100px; cursor:pointer; font-size:11.5px; font-weight:700;
+  backdrop-filter:blur(6px);
+}
+#hud button:hover{ background:var(--accent); }
+#hud .counter{ font-variant-numeric:tabular-nums; opacity:.7; padding:0 4px; }
+
+#progress{
+  position:fixed; top:0; left:0; height:2px; background:var(--accent); z-index:60;
+  transition:width .3s ease; width:0%;
+}
+
+@media print{
+  @page{ size:13.333in 7.5in; margin:0; }
+  body{ overflow:visible; background:#000; }
+  #stage{ position:static; display:block; }
+  #deck{ width:auto; height:auto; transform:none !important; box-shadow:none; border-radius:0; }
+  .slide{
+    display:flex !important; opacity:1 !important; position:relative;
+    width:13.333in; height:7.5in; padding:.66in .79in .5in;
+    page-break-after:always; break-after:page;
+  }
+  #nav-arrows, #dots, #hud, #progress{ display:none !important; }
+}
