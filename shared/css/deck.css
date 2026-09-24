@@ -230,4 +230,8 @@ ul.plain .txt b{ color:var(--ink); font-weight:700; }
     page-break-after:always; break-after:page;
   }
   #nav-arrows, #dots, #hud, #progress{ display:none !important; }
+  /* box-shadow с блюром и отрицательным spread рендерится в Chromium print
+     как жёсткий серый/синий прямоугольник вместо мягкой тени — на печати
+     убираем тень совсем и оставляем только рамку. */
+  .card, .pill{ box-shadow:none; }
 }
