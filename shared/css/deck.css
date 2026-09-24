@@ -109,7 +109,6 @@ table.clean td.r{ text-align:right; }
 .pill{
   display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700;
   letter-spacing:.04em; padding:6px 14px; border-radius:100px; background:#fff; border:1px solid var(--line);
-  box-shadow:var(--shadow);
 }
 
 ul.plain{ list-style:none; }
@@ -119,7 +118,7 @@ ul.plain .mark{ color:var(--accent); font-weight:800; font-size:15px; line-heigh
 ul.plain .txt{ font-size:14.5px; line-height:1.55; color:#3D3D46; }
 ul.plain .txt b{ color:var(--ink); font-weight:700; }
 
-.card{ border-radius:16px; padding:18px; background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow); }
+.card{ border-radius:16px; padding:18px; background:var(--surface); border:1px solid var(--line); }
 
 .flag{
   display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
@@ -148,7 +147,7 @@ ul.plain .txt b{ color:var(--ink); font-weight:700; }
 .flow{ display:flex; align-items:stretch; gap:0; }
 .flow-node{
   flex:1; border:1px solid var(--line); border-radius:16px; padding:20px;
-  background:#fff; box-shadow:var(--shadow); position:relative;
+  background:#fff; position:relative;
 }
 .flow-node.done{ border-color:var(--accent-line); background:var(--accent-soft); }
 .flow-node .node-icon{
@@ -230,8 +229,4 @@ ul.plain .txt b{ color:var(--ink); font-weight:700; }
     page-break-after:always; break-after:page;
   }
   #nav-arrows, #dots, #hud, #progress{ display:none !important; }
-  /* box-shadow с блюром и отрицательным spread рендерится в Chromium print
-     как жёсткий серый/синий прямоугольник вместо мягкой тени — на печати
-     убираем тень совсем и оставляем только рамку. */
-  .card, .pill, .flow-node{ box-shadow:none; }
 }
