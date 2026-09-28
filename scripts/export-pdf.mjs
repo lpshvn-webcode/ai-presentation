@@ -1,25 +1,14 @@
 #!/usr/bin/env node
-// Экспорт html/<slug>/index.html -> pdf/<slug>.pdf через headless Chromium.
-// Использование: node scripts/export-pdf.mjs <slug>
+// Экспорт <тип>/<проект>/<период>/index.html -> <проект>-<тип>-<период>.pdf
+// в той же папке, через headless Chromium.
+// Использование: node scripts/export-pdf.mjs reports/easyhealth/2026-09
 
 import { chromium } from 'playwright';
 import path from 'node:path';
 import fs from 'node:fs';
+import { resolveDeck } from './deck-path.mjs';
 
-const slug = process.argv[2];
-if (!slug) {
-  console.error('Использование: node scripts/export-pdf.mjs <slug>');
-  process.exit(1);
-}
-
-const root = path.resolve(import.meta.dirname, '..');
-const htmlPath = path.join(root, 'html', slug, 'index.html');
-const pdfPath = path.join(root, 'pdf', `${slug}.pdf`);
-
-if (!fs.existsSync(htmlPath)) {
-  console.error(`Не найден файл: ${htmlPath}`);
-  process.exit(1);
-}
+const { htmlPath, pdfPath } = resolveDeck(process.argv[2]);
 
 fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
 
