@@ -68,14 +68,14 @@
   .collab-x{ font-size:44px; font-weight:300; color:var(--accent); line-height:1; }
   .collab-plate{ background:#F2F2F2; border-radius:22px; padding:26px 24px; }
   .collab-plate img{ width:170px; display:block; }
-  .goal .goal-nums{ display:flex; align-items:flex-end; gap:12px; margin-top:16px; }
-  .goal .goal-now{ font-size:28px; font-weight:800; color:#BDBDBD; margin-top:6px; letter-spacing:-0.01em; }
-  .goal .goal-target{ font-size:28px; font-weight:800; color:var(--ink); margin-top:6px; letter-spacing:-0.01em; }
-  .goal .goal-arrow{ width:20px; height:20px; color:var(--accent); margin-bottom:8px; flex:none; }
-  .goal-track{ position:relative; height:12px; border-radius:4px; background:var(--neutral-fill); margin-top:18px; overflow:hidden; }
-  .goal-cur{ position:absolute; left:0; top:0; bottom:0; background:#8A8A8A; border-radius:4px 0 0 4px; }
-  .goal-band{ position:absolute; top:0; bottom:0; right:0; background:var(--accent); border-left:2px solid var(--surface); }
-  .goal-growth{ font-size:12.5px; font-weight:700; color:var(--accent); margin-top:8px; }
+  .goal-table{ margin-top:36px; }
+  .goal-row{ display:grid; grid-template-columns:1fr 200px 48px 300px; align-items:center; padding:22px 0; border-bottom:1px solid var(--line); }
+  .goal-row:last-child{ border-bottom:none; }
+  .goal-row.goal-head{ padding:0 0 12px; }
+  .goal-label{ font-size:22px; font-weight:600; color:var(--ink); }
+  .goal-now{ font-size:40px; font-weight:800; color:#8F8F8F; letter-spacing:-0.02em; }
+  .goal-arrow{ width:24px; height:24px; color:var(--accent); }
+  .goal-target{ font-size:40px; font-weight:800; color:var(--ink); letter-spacing:-0.02em; }
   .section-no{ font-size:120px; font-weight:900; line-height:.9; letter-spacing:-0.04em; color:var(--accent); }
 
   .tag{ display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:3px 8px; border-radius:5px; }
@@ -124,7 +124,7 @@
       </div>
       <div class="bottom-row">
         <span>Подготовлено агентством 303.cult для Easy Health Korea</span>
-        <span class="slide-no"><b class="num">01</b> / 17</span>
+        <span class="slide-no"><b class="num">01</b> / 18</span>
       </div>
     </section>
 
@@ -173,7 +173,7 @@
       </div>
       <div class="bottom-row">
         <span>Контент приводит новую аудиторию, реклама превращает спрос в заявки</span>
-        <span class="slide-no"><b class="num">02</b> / 17</span>
+        <span class="slide-no"><b class="num">02</b> / 18</span>
       </div>
     </section>
 
@@ -198,7 +198,7 @@
       </div>
       <div class="bottom-row">
         <span>Пик просмотров — начало сентября (до 9 тыс. в день)</span>
-        <span class="slide-no"><b class="num">03</b> / 17</span>
+        <span class="slide-no"><b class="num">03</b> / 18</span>
       </div>
     </section>
 
@@ -235,7 +235,7 @@
       </div>
       <div class="bottom-row">
         <span>Контент работает на привлечение, а не только на удержание текущей базы</span>
-        <span class="slide-no"><b class="num">04</b> / 17</span>
+        <span class="slide-no"><b class="num">04</b> / 18</span>
       </div>
     </section>
 
@@ -276,7 +276,7 @@
       </div>
       <div class="bottom-row">
         <span>Reels дают почти вдвое больше аудитории, чем истории, и в 2,6 раза больше, чем посты</span>
-        <span class="slide-no"><b class="num">05</b> / 17</span>
+        <span class="slide-no"><b class="num">05</b> / 18</span>
       </div>
     </section>
 
@@ -321,7 +321,7 @@
       </div>
       <div class="bottom-row">
         <span>Формула лучшего контента: конкретная боль + эксперт в кадре + реальный результат</span>
-        <span class="slide-no"><b class="num">06</b> / 17</span>
+        <span class="slide-no"><b class="num">06</b> / 18</span>
       </div>
     </section>
 
@@ -358,7 +358,7 @@
       </div>
       <div class="bottom-row">
         <span>Стабильный ежедневный прирост без отрицательных дней</span>
-        <span class="slide-no"><b class="num">07</b> / 17</span>
+        <span class="slide-no"><b class="num">07</b> / 18</span>
       </div>
     </section>
 
@@ -409,7 +409,7 @@
       </div>
       <div class="bottom-row">
         <span>Контент попадает в целевую аудиторию клиники</span>
-        <span class="slide-no"><b class="num">08</b> / 17</span>
+        <span class="slide-no"><b class="num">08</b> / 18</span>
       </div>
     </section>
 
@@ -451,7 +451,7 @@
       </div>
       <div class="bottom-row">
         <span>Аудитория совпадает с географией клиники — охваты можно конвертировать в визиты</span>
-        <span class="slide-no"><b class="num">09</b> / 17</span>
+        <span class="slide-no"><b class="num">09</b> / 18</span>
       </div>
     </section>
 
@@ -498,7 +498,7 @@
       </div>
       <div class="bottom-row">
         <span>Органика даёт полную цепочку: от первого просмотра до личного обращения</span>
-        <span class="slide-no"><b class="num">10</b> / 17</span>
+        <span class="slide-no"><b class="num">10</b> / 18</span>
       </div>
     </section>
 
@@ -521,7 +521,7 @@
       </div>
       <div class="bottom-row">
         <span>Meta Ads · 8 кампаний с открутками за период · CTR 2,7% · CPM $14,4</span>
-        <span class="slide-no"><b class="num">11</b> / 17</span>
+        <span class="slide-no"><b class="num">11</b> / 18</span>
       </div>
     </section>
 
@@ -552,7 +552,7 @@
       </div>
       <div class="bottom-row">
         <span>WhatsApp: 241 заявка по $2,35 · Сайт: 137 заявок по $5,42</span>
-        <span class="slide-no"><b class="num">12</b> / 17</span>
+        <span class="slide-no"><b class="num">12</b> / 18</span>
       </div>
     </section>
 
@@ -607,11 +607,11 @@
       </div>
       <div class="bottom-row">
         <span>Лучшая связка — видео с переходом в WhatsApp: заявка более чем в 3 раза дешевле, чем с сайта</span>
-        <span class="slide-no"><b class="num">13</b> / 17</span>
+        <span class="slide-no"><b class="num">13</b> / 18</span>
       </div>
     </section>
 
-    <!-- ПЛАН: КОНТЕНТ — ЦЕЛИ -->
+    <!-- ПЛАН: КОНТЕНТ — СТРАТЕГИЯ -->
     <section class="slide tint">
       <div class="top-row">
         <div class="top-brand"><img src="assets/logo-303cult.png" alt="303.cult" /><span class="top-x">×</span><span class="eh-chip"><img src="assets/icon-easyhealth.png" alt="Easy Health" /></span><span class="sep"></span><span class="top-meta">Раздел 03 · План на следующий месяц · Контент</span></div>
@@ -622,50 +622,63 @@
           <svg class="i" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
           План · контент
         </div>
-        <h1 class="headline" style="font-size:36px;">Не меняем стратегию — <span class="accent">масштабируем то, что работает</span></h1>
-        <p class="lede" style="max-width:880px;">Главная задача октября — усилить охватный контент и Reels, а параллельно повысить конверсию новой аудитории в подписку и Direct.</p>
-        <div class="cols cols-3" style="gap:16px; margin-top:26px;">
-          <div class="card goal">
-            <div class="step-num">01 · Охват</div>
-            <div class="item-title">Больше органического охвата</div>
-            <div class="goal-nums">
-              <div><div class="stat-label">Сентябрь</div><div class="goal-now num">126,6K</div></div>
-              <svg viewBox="0 0 24 24" fill="none" class="goal-arrow"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div><div class="stat-label" style="color:var(--accent);">Цель · октябрь</div><div class="goal-target num">150K–180K</div></div>
-            </div>
-            <div class="goal-track"><div class="goal-cur" style="width:70.3%;"></div><div class="goal-band" style="left:83.3%;"></div></div>
-            <div class="goal-growth num">+19–42% к сентябрю</div>
-            <div class="item-desc" style="max-width:100%; margin-top:10px;">Основной инструмент — Reels и контент, рассчитанный на новую аудиторию.</div>
+        <h1 class="headline xl">Не меняем стратегию —<br><span class="accent">масштабируем то, что работает</span></h1>
+        <div class="cols cols-2" style="gap:56px; margin-top:48px; max-width:980px;">
+          <div class="callout" style="margin-top:0;">
+            <div class="step-num">01</div>
+            <div class="item-title" style="font-size:20px; line-height:1.35;">Усиливаем охватный контент и Reels</div>
           </div>
-          <div class="card goal">
-            <div class="step-num">02 · Обращения</div>
-            <div class="item-title">Больше обращений в Direct</div>
-            <div class="goal-nums">
-              <div><div class="stat-label">Сентябрь</div><div class="goal-now num">60</div></div>
-              <svg viewBox="0 0 24 24" fill="none" class="goal-arrow"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div><div class="stat-label" style="color:var(--accent);">Цель · октябрь</div><div class="goal-target num">75–90</div></div>
-            </div>
-            <div class="goal-track"><div class="goal-cur" style="width:66.7%;"></div><div class="goal-band" style="left:83.3%;"></div></div>
-            <div class="goal-growth num">+25–50% к сентябрю</div>
-            <div class="item-desc" style="max-width:100%; margin-top:10px;">При сохранении качества лидов.</div>
+          <div class="callout" style="margin-top:0;">
+            <div class="step-num">02</div>
+            <div class="item-title" style="font-size:20px; line-height:1.35;">Повышаем конверсию новой аудитории в подписку и Direct</div>
           </div>
-          <div class="card goal">
-            <div class="step-num">03 · Аудитория</div>
-            <div class="item-title">Рост подписчиков</div>
-            <div class="goal-nums">
-              <div><div class="stat-label">Сентябрь</div><div class="goal-now num">+348</div></div>
-              <svg viewBox="0 0 24 24" fill="none" class="goal-arrow"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div><div class="stat-label" style="color:var(--accent);">Цель · октябрь</div><div class="goal-target num">+450–550</div></div>
-            </div>
-            <div class="goal-track"><div class="goal-cur" style="width:63.3%;"></div><div class="goal-band" style="left:81.8%;"></div></div>
-            <div class="goal-growth num">+29–58% к сентябрю</div>
-            <div class="item-desc" style="max-width:100%; margin-top:10px;">Повышаем конверсию новой аудитории в подписку.</div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <span>Главная задача октября</span>
+        <span class="slide-no"><b class="num">14</b> / 18</span>
+      </div>
+    </section>
+
+    <!-- ПЛАН: КОНТЕНТ — ЦЕЛИ -->
+    <section class="slide">
+      <div class="top-row">
+        <div class="top-brand"><img src="assets/logo-303cult.png" alt="303.cult" /><span class="top-x">×</span><span class="eh-chip"><img src="assets/icon-easyhealth.png" alt="Easy Health" /></span><span class="sep"></span><span class="top-meta">Раздел 03 · План на следующий месяц · Контент</span></div>
+        <div class="top-meta">Easy Health Korea · октябрь 2026</div>
+      </div>
+      <div class="body-area">
+        <div class="kicker">
+          <svg class="i" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
+          Цели на октябрь
+        </div>
+        <h1 class="headline">Ориентиры на октябрь</h1>
+        <div class="goal-table">
+          <div class="goal-row goal-head">
+            <div></div><div class="stat-label">Сентябрь</div><div></div><div class="stat-label" style="color:var(--accent);">Цель · октябрь</div>
+          </div>
+          <div class="goal-row">
+            <div class="goal-label">Просмотры контента</div>
+            <div class="goal-now num">126,6K</div>
+            <svg viewBox="0 0 24 24" fill="none" class="goal-arrow"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="goal-target num">150–180K</div>
+          </div>
+          <div class="goal-row">
+            <div class="goal-label">Обращения в Direct</div>
+            <div class="goal-now num">60</div>
+            <svg viewBox="0 0 24 24" fill="none" class="goal-arrow"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="goal-target num">75–90</div>
+          </div>
+          <div class="goal-row">
+            <div class="goal-label">Новые подписчики</div>
+            <div class="goal-now num">+348</div>
+            <svg viewBox="0 0 24 24" fill="none" class="goal-arrow"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="goal-target num">+450–550</div>
           </div>
         </div>
       </div>
       <div class="bottom-row">
         <span>Цели — ориентиры для работы, а не гарантированные результаты</span>
-        <span class="slide-no"><b class="num">14</b> / 17</span>
+        <span class="slide-no"><b class="num">15</b> / 18</span>
       </div>
     </section>
 
@@ -711,7 +724,7 @@
       </div>
       <div class="bottom-row">
         <span>Цель разбора — понять, какие темы, хуки и CTA масштабировать в следующем месяце</span>
-        <span class="slide-no"><b class="num">15</b> / 17</span>
+        <span class="slide-no"><b class="num">16</b> / 18</span>
       </div>
     </section>
 
@@ -766,7 +779,7 @@
       </div>
       <div class="bottom-row">
         <span>Цель на месяц — больше квалифицированных заявок по меньшей цене и рост окупаемости</span>
-        <span class="slide-no"><b class="num">16</b> / 17</span>
+        <span class="slide-no"><b class="num">17</b> / 18</span>
       </div>
     </section>
 
@@ -799,7 +812,7 @@
       </div>
       <div class="bottom-row">
         <span>Октябрь — масштабируем то, что работает, и растим конверсию в подписку, Direct и заявки</span>
-        <span class="slide-no"><b class="num">17</b> / 17</span>
+        <span class="slide-no"><b class="num">18</b> / 18</span>
       </div>
     </section>
 
@@ -812,7 +825,7 @@
 </div>
 <div id="dots"></div>
 <div id="hud">
-  <span class="counter"><span id="cur">1</span> / <span id="total">17</span></span>
+  <span class="counter"><span id="cur">1</span> / <span id="total">18</span></span>
   <button id="fs-btn">⛶ Экран</button>
   <button id="print-btn">🖨 PDF</button>
 </div>
