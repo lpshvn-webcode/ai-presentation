@@ -247,6 +247,43 @@ ul.plain .txt b{ color:var(--ink); font-weight:700; }
   transition:width .3s ease; width:0%;
 }
 
+/* ===== Тёмный акцентный слайд (обложка/закрывающий) =====
+   Точечное исключение из светлой системы — для обложки и последнего
+   слайда, по образцу бренд-кита Diskurs (shared/references/design-inspiration.md):
+   там тоже большинство слайдов светлые, а тёмный — только на «входе» и
+   «выходе» презентации. Без blur/backdrop-filter — сплошная заливка,
+   чтобы не ловить артефакты печати в PDF (см. правило про box-shadow). */
+.slide.dark{
+  background:
+    radial-gradient(120% 130% at 12% -10%, rgba(122,92,255,.30), transparent 55%),
+    linear-gradient(155deg, #0A1120 0%, #121C3E 48%, #1E2F7A 100%);
+  color:#fff;
+}
+.slide.dark .top-row,
+.slide.dark .bottom-row{ border-color:rgba(255,255,255,.14); color:rgba(255,255,255,.55); }
+.slide.dark .kicker{ background:rgba(255,255,255,.12); color:#fff; }
+.slide.dark h1.headline{ color:#fff; }
+.slide.dark .accent{ color:#8FA6FF; }
+.slide.dark .lede{ color:rgba(255,255,255,.72); }
+.slide.dark .muted{ color:rgba(255,255,255,.55); }
+.slide.dark .rule-v{ background:rgba(255,255,255,.16); }
+.slide.dark .item-title{ color:#fff; }
+.slide.dark .item-desc{ color:rgba(255,255,255,.6); }
+.slide.dark table.clean th{ color:rgba(255,255,255,.55); border-color:rgba(255,255,255,.16); }
+.slide.dark table.clean td{ border-color:rgba(255,255,255,.16); color:#fff; }
+.slide.dark table.clean td.accent{ color:#8FA6FF; }
+
+/* Заголовок-плакат для обложек/разделов — крупнее и плотнее обычного .xl,
+   приём из маркетинг-кита Diskurs (см. design-inspiration.md). */
+h1.headline.poster{ font-size:58px; font-weight:900; letter-spacing:-0.02em; line-height:1.04; }
+
+/* Карточка-стекло — приём из better-design/glassmorphic-dark (см.
+   design-inspiration.md): полупрозрачная заливка + светлая тонкая рамка,
+   БЕЗ backdrop-filter/blur (печать в PDF не гарантирует его поддержку). */
+.card.glass{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); }
+.card.glass .stat-label{ color:rgba(255,255,255,.6); }
+.card.glass .stat-big{ color:#fff; }
+
 @media print{
   @page{ size:13.333in 7.5in; margin:0; }
   body{ overflow:visible; background:#fff; }

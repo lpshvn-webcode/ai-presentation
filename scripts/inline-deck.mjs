@@ -45,8 +45,23 @@ if (jsSrcRe.test(html)) {
   changed++;
 }
 
-const cssLinkRe = /<link rel="stylesheet" href="[^"]*shared\/css\/deck\.css"\s*\/?>/;
-if (cssLinkRe.test(html)) {
+// Якорь на начало строки (без отступа) — реальный тег в шаблоне всегда с
+// колонки 0. deck.css в своём собственном комментарии-документации приводит
+// этот же тег как пример, но с отступом в 4 пробела — без ^ якоря regex
+// находил тот пример внутри уже встроенного CSS вместо настоящего тега
+// (или вместо него при повторном запуске) и портил разметку.
+const cssLinkRe = /^<link rel="stylesheet" href="[^"]*shared\/css\/deck\.css"\s*\/?>$/m;
+// Файл мог уже быть встроен раньше — тогда вместо <link> там <style>...</style>
+// с уже вставленным (возможно устаревшим) deck.css. --refresh-css позволяет
+// пересобрать этот блок из текущего shared/css/deck.css, не трогая остальное
+// (JS и assets уже встроены и не изменились). Якорь на первую строку
+// собственного комментария deck.css — однозначно определяет РЕАЛЬНЫЙ
+// <style>, а не любое случайное вхождение "<style>" в тексте.
+const styleBlockRe = /<style>\n\/\*\n  Дизайн-система для презентаций[\s\S]*?\n<\/style>/;
+const shouldRefreshCss = process.argv.includes('--refresh-css');
+const hasCssLink = cssLinkRe.test(html);
+const hasInlinedStyle = styleBlockRe.test(html);
+if (hasCssLink || (shouldRefreshCss && hasInlinedStyle)) {
   let css = fs.readFileSync(path.join(root, 'shared', 'css', 'deck.css'), 'utf8');
   // встраиваем сами файлы шрифтов как base64 — относительный url() из
   // deck.css резолвился бы не туда, если просто вставить текст CSS в
@@ -56,7 +71,9 @@ if (cssLinkRe.test(html)) {
     const data = fs.readFileSync(fontPath).toString('base64');
     return `url('data:font/woff2;base64,${data}')`;
   });
-  html = html.replace(cssLinkRe, `<style>\n${css}\n</style>`);
+  html = hasCssLink
+    ? html.replace(cssLinkRe, `<style>\n${css}\n</style>`)
+    : html.replace(styleBlockRe, `<style>\n${css}\n</style>`);
   changed++;
 }
 
