@@ -9,7 +9,7 @@
 html/<slug>/            — исходный HTML презентации (index.html + assets/)
 pdf/<slug>.pdf          — экспорт той же презентации в PDF
 html/individual-kp/<slug>/ и pdf/individual-kp/<slug>.pdf — индивидуальные КП под конкретный
-                          тариф/клиента (только тариф, без кейсов); slug для скриптов
+                          тариф/клиента (та же КП с кейсами, заменены только слайды с тарифами); slug для скриптов
                           пишется как individual-kp/<slug>, пути к shared — ../../../shared/
 shared/
   css/deck.css          — дизайн-система: светлые слайды 16:9, Inter, синий акцент
