@@ -91,6 +91,21 @@ html = html.replace(/src="assets\/([^"]+)"/g, (match, filename) => {
   return `src="data:${mime};base64,${data}"`;
 });
 
+// Фоновые картинки слайдов подключаются как CSS url('assets/...') в inline
+// style, не через <img src>, поэтому отдельный проход тем же принципом.
+html = html.replace(/url\('assets\/([^']+)'\)/g, (match, filename) => {
+  const assetPath = path.join(deckDir, 'assets', filename);
+  if (!fs.existsSync(assetPath)) {
+    console.warn(`Ассет не найден, оставляю как есть: ${assetPath}`);
+    return match;
+  }
+  const ext = path.extname(filename).slice(1).toLowerCase();
+  const mime = mimeByExt[ext] || 'application/octet-stream';
+  const data = fs.readFileSync(assetPath).toString('base64');
+  changed++;
+  return `url('data:${mime};base64,${data}')`;
+});
+
 if (changed === 0) {
   console.log('Уже самодостаточен — заменять нечего.');
   process.exit(0);
