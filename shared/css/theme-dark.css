@@ -12,7 +12,10 @@
   Подключение (после deck.css):
     <link rel="stylesheet" href="../../shared/css/deck.css">
     <link rel="stylesheet" href="../../shared/css/theme-dark.css">
-    <style>:root{ --accent:#ВАШ_ЦВЕТ; --accent-soft:rgba(...,.15); --accent-line:rgba(...,.4); }</style>
+  и там же, в отдельном блоке стилей презентации, переопределить в :root
+  переменные --accent, --accent-soft (rgba .15), --accent-line (rgba .4).
+  Не писать в этом комментарии закрывающий тег style: при встраивании
+  в HTML он оборвал бы стили посреди файла.
 
   Без blur/backdrop-filter — только сплошные заливки и rgba-прозрачность,
   чтобы не ловить артефакты печати в PDF (тот же принцип, что и в

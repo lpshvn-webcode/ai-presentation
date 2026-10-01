@@ -77,6 +77,16 @@ if (hasCssLink || (shouldRefreshCss && hasInlinedStyle)) {
   changed++;
 }
 
+// Прочие стили из shared/css (например theme-dark.css) — тоже встраиваем,
+// иначе одиночный index.html без репозитория потеряет тему.
+const extraCssLinkRe = /^<link rel="stylesheet" href="[^"]*shared\/css\/([\w-]+)\.css"\s*\/?>$/gm;
+html = html.replace(extraCssLinkRe, (match, name) => {
+  const cssPath = path.join(root, 'shared', 'css', `${name}.css`);
+  if (!fs.existsSync(cssPath)) return match;
+  changed++;
+  return `<style>\n${fs.readFileSync(cssPath, 'utf8')}\n</style>`;
+});
+
 const mimeByExt = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', svg: 'image/svg+xml', webp: 'image/webp' };
 html = html.replace(/src="assets\/([^"]+)"/g, (match, filename) => {
   const assetPath = path.join(deckDir, 'assets', filename);

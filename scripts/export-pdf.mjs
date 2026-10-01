@@ -26,7 +26,14 @@ fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
 const browser = await chromium.launch();
 const page = await browser.newPage();
 await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle' });
-await page.evaluate(() => document.fonts.ready); // дождаться реальной загрузки Inter, иначе печатает системным шрифтом
+// Браузер грузит начертание шрифта лениво — только когда текст с этим весом
+// виден на экране. Слайды кроме активного скрыты, поэтому веса, которых нет
+// на первом слайде, не успевают загрузиться и в PDF печатаются системным
+// шрифтом. Грузим все объявленные начертания принудительно.
+await page.evaluate(async () => {
+  await Promise.all([...document.fonts].map((f) => f.load()));
+  await document.fonts.ready;
+});
 await page.emulateMedia({ media: 'print' });
 await page.pdf({
   path: pdfPath,
