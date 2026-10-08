@@ -97,6 +97,12 @@ PDF получит не тот шрифт, что HTML — см. «Экспор�
    (см. ниже), чтобы презентацию можно было прислать одним файлом
 5. Экспортировать в PDF (см. ниже) → `pdf/<slug>.pdf`
 
+## КП агентства 303.cult
+
+Инструкция по сборке коммерческих предложений (структура, цены, чек-лист, образцы) —
+[`shared/references/kp-303cult-guide.md`](shared/references/kp-303cult-guide.md);
+расчёт цен — [`pricing.md`](shared/references/pricing.md).
+
 ## Самодостаточный HTML (важно перед тем, как делиться файлом)
 
 Пока `index.html` подключает `shared/css/deck.css` и `shared/js/deck.js`
