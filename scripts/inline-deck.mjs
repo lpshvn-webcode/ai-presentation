@@ -45,20 +45,22 @@ if (jsSrcRe.test(html)) {
   changed++;
 }
 
-const cssLinkRe = /<link rel="stylesheet" href="[^"]*shared\/css\/deck\.css"\s*\/?>/;
-if (cssLinkRe.test(html)) {
-  let css = fs.readFileSync(path.join(root, 'shared', 'css', 'deck.css'), 'utf8');
-  // встраиваем сами файлы шрифтов как base64 — относительный url() из
-  // deck.css резолвился бы не туда, если просто вставить текст CSS в
-  // <style> внутри html/<slug>/index.html (другая база для относительных путей)
-  css = css.replace(/url\('\.\.\/fonts\/inter\/([^']+\.woff2)'\)/g, (m, filename) => {
-    const fontPath = path.join(root, 'shared', 'fonts', 'inter', filename);
+// Любой <link> на shared/css/*.css (deck.css и темы вроде theme-arbis.css)
+// заменяется на <style> с самим CSS; файлы шрифтов из url('../fonts/<семья>/…')
+// встраиваются как base64 — относительный url() из shared/css/ резолвился бы
+// не туда, если просто вставить текст CSS в <style> внутри html/<slug>/index.html
+// (другая база для относительных путей).
+const cssLinkRe = /<link rel="stylesheet" href="[^"]*shared\/css\/([\w.-]+\.css)"\s*\/?>/g;
+html = html.replace(cssLinkRe, (m, cssFile) => {
+  let css = fs.readFileSync(path.join(root, 'shared', 'css', cssFile), 'utf8');
+  css = css.replace(/url\('\.\.\/fonts\/([\w-]+)\/([^']+\.woff2)'\)/g, (m2, family, filename) => {
+    const fontPath = path.join(root, 'shared', 'fonts', family, filename);
     const data = fs.readFileSync(fontPath).toString('base64');
     return `url('data:font/woff2;base64,${data}')`;
   });
-  html = html.replace(cssLinkRe, `<style>\n${css}\n</style>`);
   changed++;
-}
+  return `<style>\n${css}\n</style>`;
+});
 
 const mimeByExt = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', svg: 'image/svg+xml', webp: 'image/webp' };
 html = html.replace(/src="assets\/([^"]+)"/g, (match, filename) => {
