@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Отчёт 303 x Intant — Meta Ads</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../../shared/css/deck.css" />
+<link rel="stylesheet" href="../../shared/css/theme-dark.css" />
+<style>
+.slide, .slide.tint{ background:url('assets/bg/bg-flat.jpg') center/cover no-repeat; }
+.kpi{ border-top:1px solid var(--line); padding-top:20px; }
+.kpi .stat-big{ font-size:56px; letter-spacing:-0.03em; margin-top:12px; }
+.kpi .note{ font-size:13.5px; line-height:1.5; color:var(--muted); margin-top:10px; }
+.creo-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:28px; }
+.creo{ border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:hidden; display:flex; flex-direction:column; }
+.creo.win{ border:2px solid var(--accent); }
+.creo-img{ aspect-ratio:4/5; background:rgba(255,255,255,.05); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; position:relative; }
+.creo-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.creo-tag{ position:absolute; top:8px; left:8px; font-size:11px; font-weight:800; padding:4px 9px; border-radius:100px; background:var(--accent); color:#fff; letter-spacing:.04em; text-transform:none; }
+.creo-body{ padding:12px 14px 14px; }
+.creo-name{ font-size:15px; font-weight:800; color:var(--ink); display:flex; justify-content:space-between; align-items:baseline; }
+.creo-cpa{ font-size:22px; font-weight:800; margin-top:6px; letter-spacing:-0.02em; color:var(--ink); }
+.creo-cpa.none{ color:var(--muted); font-size:15px; font-weight:700; padding:5px 0 4px; }
+.creo-sub{ font-size:11.5px; color:var(--muted); margin-top:2px; }
+.creo-split{ margin-top:10px; padding-top:8px; border-top:1px solid var(--line); font-size:11.5px; line-height:1.6; color:rgba(245,245,243,.72); font-variant-numeric:tabular-nums; }
+.creo-split b{ color:var(--ink); }
+.reco{ display:grid; grid-template-columns:52px 1fr; gap:6px 0; padding:20px 0; border-top:1px solid var(--line); }
+.reco .n{ font-size:15px; font-weight:800; color:var(--accent); padding-top:2px; }
+.reco .t{ font-size:19px; font-weight:800; color:var(--ink); line-height:1.3; }
+.reco .d{ grid-column:2; font-size:14px; line-height:1.55; color:rgba(245,245,243,.72); }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div id="stage">
+  <div id="deck">
+
+    <!-- 01 — ТИТУЛ + ИТОГИ -->
+    <section class="slide active" style="background:linear-gradient(0deg, rgba(10,10,10,.35), rgba(10,10,10,.35)), url('assets/bg/bg-cult.jpg') center/cover no-repeat;">
+      <div class="top-row"><div class="top-meta">Отчёт по рекламе · Meta Ads · 303 x Intant</div></div>
+      <div class="body-area">
+        <div style="display:flex; align-items:center; gap:22px;">
+          <div style="flex:none; width:64px; height:64px; border-radius:14px; overflow:hidden; border:1px solid var(--line);">
+            <img src="assets/intant-logo.jpg" alt="INTANT" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          </div>
+          <div class="stat-label">Группы «303 x Intant» (1) и (2) · 6 октября — 4 ноября 2026</div>
+        </div>
+        <h1 class="headline poster" style="font-size:56px; max-width:980px; margin-top:26px;">15 переписок, и 11 из них <span class="accent">принёс один креатив</span></h1>
+        <div class="cols cols-4" style="gap:36px; margin-top:44px;">
+          <div class="kpi">
+            <div class="stat-label">Потрачено</div>
+            <div class="stat-big">$105,83</div>
+            <div class="note">$64,22 в группе (1) и $41,61 в группе (2)</div>
+          </div>
+          <div class="kpi">
+            <div class="stat-label">Переписок</div>
+            <div class="stat-big">15</div>
+            <div class="note">12 в группе (1), 3 в группе (2)</div>
+          </div>
+          <div class="kpi">
+            <div class="stat-label">Цена переписки</div>
+            <div class="stat-big">$7,06</div>
+            <div class="note">(1) — $5,35, (2) — $13,87. В Luxury-группах той же кампании — $3,47–3,52</div>
+          </div>
+          <div class="kpi" style="border-top:2px solid var(--accent);">
+            <div class="stat-label" style="color:var(--accent);">Креатив stat 6</div>
+            <div class="stat-big accent">$3,52</div>
+            <div class="note">за переписку: 11 из 15 переписок при 37% бюджета</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-row" style="justify-content:flex-end; border-top:none;">
+        <span class="slide-no"><b class="num">01</b> / 03</span>
+      </div>
+    </section>
+
+    <!-- 02 — КРЕАТИВЫ -->
+    <section class="slide">
+      <div class="top-row"><div class="top-meta">Креативы · обе группы вместе</div></div>
+      <div class="body-area">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+          <div>
+            <div class="kicker">
+              <svg class="i" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4.5" width="17" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="10" r="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 16.5 9.5 12l3 3 3.5-3.5 4 4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              6 статичных креативов
+            </div>
+            <h1 class="headline" style="font-size:40px;">Работает <span class="accent">stat 6</span>, остальные — дорого или без переписок</h1>
+          </div>
+        </div>
+        <div class="creo-grid">
+          <div class="creo win">
+            <div class="creo-img"><span class="creo-tag">лучший</span>stat 6</div>
+            <div class="creo-body">
+              <div class="creo-name">stat 6</div>
+              <div class="creo-cpa accent">$3,52</div>
+              <div class="creo-sub">11 переписок · $38,74</div>
+              <div class="creo-split">(1): <b>10</b> · $36,05<br>(2): <b>1</b> · $2,69</div>
+            </div>
+          </div>
+          <div class="creo">
+            <div class="creo-img">stat 4</div>
+            <div class="creo-body">
+              <div class="creo-name">stat 4</div>
+              <div class="creo-cpa">$4,72</div>
+              <div class="creo-sub">1 переписка · $4,72</div>
+              <div class="creo-split">(1): <b>0</b> · $2,26<br>(2): <b>1</b> · $2,46</div>
+            </div>
+          </div>
+          <div class="creo">
+            <div class="creo-img">stat 3</div>
+            <div class="creo-body">
+              <div class="creo-name">stat 3</div>
+              <div class="creo-cpa">$9,71</div>
+              <div class="creo-sub">2 переписки · $19,42</div>
+              <div class="creo-split">(1): <b>2</b> · $19,19<br>(2): <b>0</b> · $0,23</div>
+            </div>
+          </div>
+          <div class="creo">
+            <div class="creo-img">stat 1</div>
+            <div class="creo-body">
+              <div class="creo-name">stat 1</div>
+              <div class="creo-cpa">$29,64</div>
+              <div class="creo-sub">1 переписка · $29,64</div>
+              <div class="creo-split">(1): <b>0</b> · $1,73<br>(2): <b>1</b> · $27,91</div>
+            </div>
+          </div>
+          <div class="creo">
+            <div class="creo-img">stat 2</div>
+            <div class="creo-body">
+              <div class="creo-name">stat 2</div>
+              <div class="creo-cpa none">нет переписок</div>
+              <div class="creo-sub">потрачено $8,77</div>
+              <div class="creo-split">(1): <b>0</b> · $3,76<br>(2): <b>0</b> · $5,01</div>
+            </div>
+          </div>
+          <div class="creo">
+            <div class="creo-img">stat 5</div>
+            <div class="creo-body">
+              <div class="creo-name">stat 5</div>
+              <div class="creo-cpa none">нет переписок</div>
+              <div class="creo-sub">потрачено $4,54</div>
+              <div class="creo-split">(1): <b>0</b> · $1,23<br>(2): <b>0</b> · $3,31</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-row" style="justify-content:flex-end; border-top:none;">
+        <span class="slide-no"><b class="num">02</b> / 03</span>
+      </div>
+    </section>
+
+    <!-- 03 — ВЫВОДЫ -->
+    <section class="slide">
+      <div class="top-row"><div class="top-meta">Выводы</div></div>
+      <div class="body-area">
+        <div class="kicker">
+          <svg class="i" viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17l9-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Что делаем дальше
+        </div>
+        <h1 class="headline">Строим следующий тест <span class="accent">вокруг stat 6</span></h1>
+        <div class="cols cols-2" style="gap:0 56px; margin-top:30px;">
+          <div class="reco">
+            <div class="n">01</div><div class="t">stat 6 — рабочий креатив</div>
+            <div class="d">11 переписок по $3,52 — на уровне Luxury-групп ($3,47–3,52). Оставить его и сделать 2–3 вариации на его основе: тот же оффер, другой визуал или заголовок.</div>
+          </div>
+          <div class="reco">
+            <div class="n">02</div><div class="t">Группу (2) «съел» stat 1</div>
+            <div class="d">Meta отдала ему $27,91 — 67% бюджета группы — и получила 1 переписку. Отсюда и цена группы $13,87. stat 6 в этой группе почти не показывался ($2,69).</div>
+          </div>
+          <div class="reco">
+            <div class="n">03</div><div class="t">stat 1, 2 и 5 — не возвращать</div>
+            <div class="d">Вместе $42,95 и 1 переписка. stat 3 ($9,71) и stat 4 ($4,72) — данных мало, можно оставить только как дублёров к stat 6.</div>
+          </div>
+          <div class="reco">
+            <div class="n">04</div><div class="t">Одна группа вместо двух</div>
+            <div class="d">Обе группы сейчас не показываются. При перезапуске — одна группа с stat 6 и новыми вариациями, чтобы бюджет не размывался между дублями.</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-row" style="justify-content:flex-end; border-top:none;">
+        <span class="slide-no"><b class="num">03</b> / 03</span>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div id="nav-arrows">
+  <div class="nav-btn" id="prev-btn">‹</div>
+  <div class="nav-btn" id="next-btn">›</div>
+</div>
+<div id="dots"></div>
+<div id="hud">
+  <span class="counter"><span id="cur">1</span> / <span id="total">1</span></span>
+  <button id="fs-btn">⛶ Экран</button>
+  <button id="print-btn">🖨 PDF</button>
+</div>
+
+<script src="../../shared/js/deck.js" defer></script>
+</body>
+</html>
