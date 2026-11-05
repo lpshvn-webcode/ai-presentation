@@ -14,7 +14,7 @@
 .creo-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:28px; }
 .creo{ border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:hidden; display:flex; flex-direction:column; }
 .creo.win{ border:2px solid var(--accent); }
-.creo-img{ aspect-ratio:4/5; background:rgba(255,255,255,.05); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; position:relative; }
+.creo-img{ aspect-ratio:1/1; background:rgba(255,255,255,.05); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; position:relative; }
 .creo-img img{ width:100%; height:100%; object-fit:cover; display:block; }
 .creo-tag{ position:absolute; top:8px; left:8px; font-size:11px; font-weight:800; padding:4px 9px; border-radius:100px; background:var(--accent); color:#fff; letter-spacing:.04em; text-transform:none; }
 .creo-body{ padding:12px 14px 14px; }
@@ -22,8 +22,14 @@
 .creo-cpa{ font-size:22px; font-weight:800; margin-top:6px; letter-spacing:-0.02em; color:var(--ink); }
 .creo-cpa.none{ color:var(--muted); font-size:15px; font-weight:700; padding:5px 0 4px; }
 .creo-sub{ font-size:11.5px; color:var(--muted); margin-top:2px; }
+.creo-meta{ margin-top:8px; font-size:11px; white-space:nowrap; line-height:1.55; color:var(--muted); font-variant-numeric:tabular-nums; }
+.creo-meta b{ color:var(--ink); }
 .creo-split{ margin-top:10px; padding-top:8px; border-top:1px solid var(--line); font-size:11.5px; line-height:1.6; color:rgba(245,245,243,.72); font-variant-numeric:tabular-nums; }
 .creo-split b{ color:var(--ink); }
+table.clean th.r{ text-align:right; }
+table.clean.dense td{ padding:5.5px 0; font-size:13px; font-variant-numeric:tabular-nums; }
+table.clean.dense th{ padding-bottom:8px; }
+table.clean.dense tr.grp td{ font-weight:800; color:var(--ink); padding-top:10px; border-top:1px solid var(--accent-line); }
 .reco{ display:grid; grid-template-columns:52px 1fr; gap:6px 0; padding:20px 0; border-top:1px solid var(--line); }
 .reco .n{ font-size:15px; font-weight:800; color:var(--accent); padding-top:2px; }
 .reco .t{ font-size:19px; font-weight:800; color:var(--ink); line-height:1.3; }
@@ -72,7 +78,7 @@
         </div>
       </div>
       <div class="bottom-row" style="justify-content:flex-end; border-top:none;">
-        <span class="slide-no"><b class="num">01</b> / 03</span>
+        <span class="slide-no"><b class="num">01</b> / 04</span>
       </div>
     </section>
 
@@ -96,6 +102,7 @@
               <div class="creo-name">stat 6</div>
               <div class="creo-cpa accent">$3,52</div>
               <div class="creo-sub">11 переписок · $38,74</div>
+              <div class="creo-meta">5 901 показов · CPM $6,56<br><b>1,86</b> пер. / 1000 показов</div>
               <div class="creo-split">(1): <b>10</b> · $36,05<br>(2): <b>1</b> · $2,69</div>
             </div>
           </div>
@@ -105,6 +112,7 @@
               <div class="creo-name">stat 4</div>
               <div class="creo-cpa">$4,72</div>
               <div class="creo-sub">1 переписка · $4,72</div>
+              <div class="creo-meta">886 показов · CPM $5,33<br><b>1,13</b> пер. / 1000 показов</div>
               <div class="creo-split">(1): <b>0</b> · $2,26<br>(2): <b>1</b> · $2,46</div>
             </div>
           </div>
@@ -114,6 +122,7 @@
               <div class="creo-name">stat 3</div>
               <div class="creo-cpa">$9,71</div>
               <div class="creo-sub">2 переписки · $19,42</div>
+              <div class="creo-meta">2 200 показов · CPM $8,83<br><b>0,91</b> пер. / 1000 показов</div>
               <div class="creo-split">(1): <b>2</b> · $19,19<br>(2): <b>0</b> · $0,23</div>
             </div>
           </div>
@@ -123,6 +132,7 @@
               <div class="creo-name">stat 1</div>
               <div class="creo-cpa">$29,64</div>
               <div class="creo-sub">1 переписка · $29,64</div>
+              <div class="creo-meta">6 157 показов · CPM $4,81<br><b>0,16</b> пер. / 1000 показов</div>
               <div class="creo-split">(1): <b>0</b> · $1,73<br>(2): <b>1</b> · $27,91</div>
             </div>
           </div>
@@ -132,6 +142,7 @@
               <div class="creo-name">stat 2</div>
               <div class="creo-cpa none">нет переписок</div>
               <div class="creo-sub">потрачено $8,77</div>
+              <div class="creo-meta">1 700 показов · CPM $5,16<br><b>0</b> пер. / 1000 показов</div>
               <div class="creo-split">(1): <b>0</b> · $3,76<br>(2): <b>0</b> · $5,01</div>
             </div>
           </div>
@@ -141,17 +152,55 @@
               <div class="creo-name">stat 5</div>
               <div class="creo-cpa none">нет переписок</div>
               <div class="creo-sub">потрачено $4,54</div>
+              <div class="creo-meta">897 показов · CPM $5,06<br><b>0</b> пер. / 1000 показов</div>
               <div class="creo-split">(1): <b>0</b> · $1,23<br>(2): <b>0</b> · $3,31</div>
             </div>
           </div>
         </div>
       </div>
       <div class="bottom-row" style="justify-content:flex-end; border-top:none;">
-        <span class="slide-no"><b class="num">02</b> / 03</span>
+        <span class="slide-no"><b class="num">02</b> / 04</span>
       </div>
     </section>
 
-    <!-- 03 — ВЫВОДЫ -->
+    <!-- 03 — ВСЕ ОБЪЯВЛЕНИЯ -->
+    <section class="slide">
+      <div class="top-row"><div class="top-meta">Все объявления</div></div>
+      <div class="body-area">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:16px;">
+          <div>
+            <div class="kicker">
+              <svg class="i" viewBox="0 0 24 24" fill="none"><rect x="4" y="13" width="3.5" height="7" rx="1" fill="currentColor"/><rect x="10.3" y="8" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="16.6" y="4" width="3.5" height="16" rx="1" fill="currentColor"/></svg>
+              Детализация
+            </div>
+            <h1 class="headline" style="font-size:36px;">Цифры по каждому <span class="accent">объявлению</span></h1>
+          </div>
+          <span class="pill">6.10 — 4.11.2026 · USD</span>
+        </div>
+        <table class="clean dense">
+          <tr><th>Объявление</th><th class="r">Потрачено</th><th class="r">Переписки</th><th class="r">Цена переписки</th><th class="r">Показы</th><th class="r">Охват</th><th class="r">Частота</th><th class="r">CPM</th></tr>
+          <tr class="grp"><td>303 x Intant (1)</td><td class="r">$64,22</td><td class="r">12</td><td class="r">$5,35</td><td class="r">8 828</td><td class="r">—</td><td class="r">—</td><td class="r">$7,27</td></tr>
+          <tr><td style="padding-left:16px;"><b class="accent">stat 6</b></td><td class="r">$36,05</td><td class="r">10</td><td class="r"><b class="accent">$3,61</b></td><td class="r">5 231</td><td class="r">3 699</td><td class="r">1,41</td><td class="r">$6,89</td></tr>
+          <tr><td style="padding-left:16px;">stat 3</td><td class="r">$19,19</td><td class="r">2</td><td class="r">$9,60</td><td class="r">2 101</td><td class="r">1 606</td><td class="r">1,31</td><td class="r">$9,13</td></tr>
+          <tr><td style="padding-left:16px;">stat 2</td><td class="r">$3,76</td><td class="r">0</td><td class="r">—</td><td class="r">664</td><td class="r">585</td><td class="r">1,14</td><td class="r">$5,66</td></tr>
+          <tr><td style="padding-left:16px;">stat 4</td><td class="r">$2,26</td><td class="r">0</td><td class="r">—</td><td class="r">286</td><td class="r">258</td><td class="r">1,11</td><td class="r">$7,90</td></tr>
+          <tr><td style="padding-left:16px;">stat 1</td><td class="r">$1,73</td><td class="r">0</td><td class="r">—</td><td class="r">331</td><td class="r">312</td><td class="r">1,06</td><td class="r">$5,23</td></tr>
+          <tr><td style="padding-left:16px;">stat 5</td><td class="r">$1,23</td><td class="r">0</td><td class="r">—</td><td class="r">215</td><td class="r">205</td><td class="r">1,05</td><td class="r">$5,72</td></tr>
+          <tr class="grp"><td>303 x Intant (2)</td><td class="r">$41,61</td><td class="r">3</td><td class="r">$13,87</td><td class="r">8 913</td><td class="r">—</td><td class="r">—</td><td class="r">$4,67</td></tr>
+          <tr><td style="padding-left:16px;">stat 1</td><td class="r">$27,91</td><td class="r">1</td><td class="r">$27,91</td><td class="r">5 826</td><td class="r">4 357</td><td class="r">1,34</td><td class="r">$4,79</td></tr>
+          <tr><td style="padding-left:16px;">stat 2</td><td class="r">$5,01</td><td class="r">0</td><td class="r">—</td><td class="r">1 036</td><td class="r">819</td><td class="r">1,26</td><td class="r">$4,84</td></tr>
+          <tr><td style="padding-left:16px;">stat 5</td><td class="r">$3,31</td><td class="r">0</td><td class="r">—</td><td class="r">682</td><td class="r">661</td><td class="r">1,03</td><td class="r">$4,85</td></tr>
+          <tr><td style="padding-left:16px;"><b class="accent">stat 6</b></td><td class="r">$2,69</td><td class="r">1</td><td class="r"><b class="accent">$2,69</b></td><td class="r">670</td><td class="r">608</td><td class="r">1,10</td><td class="r">$4,01</td></tr>
+          <tr><td style="padding-left:16px;">stat 4</td><td class="r">$2,46</td><td class="r">1</td><td class="r">$2,46</td><td class="r">600</td><td class="r">531</td><td class="r">1,13</td><td class="r">$4,10</td></tr>
+          <tr><td style="padding-left:16px;">stat 3</td><td class="r">$0,23</td><td class="r">0</td><td class="r">—</td><td class="r">99</td><td class="r">93</td><td class="r">1,06</td><td class="r">$2,32</td></tr>
+        </table>
+      </div>
+      <div class="bottom-row" style="justify-content:flex-end; border-top:none;">
+        <span class="slide-no"><b class="num">03</b> / 04</span>
+      </div>
+    </section>
+
+    <!-- 04 — ВЫВОДЫ -->
     <section class="slide">
       <div class="top-row"><div class="top-meta">Выводы</div></div>
       <div class="body-area">
@@ -166,21 +215,21 @@
             <div class="d">11 переписок по $3,52 — на уровне Luxury-групп ($3,47–3,52). Оставить его и сделать 2–3 вариации на его основе: тот же оффер, другой визуал или заголовок.</div>
           </div>
           <div class="reco">
-            <div class="n">02</div><div class="t">Группу (2) «съел» stat 1</div>
-            <div class="d">Meta отдала ему $27,91 — 67% бюджета группы — и получила 1 переписку. Отсюда и цена группы $13,87. stat 6 в этой группе почти не показывался ($2,69).</div>
-          </div>
-          <div class="reco">
-            <div class="n">03</div><div class="t">stat 1, 2 и 5 — не возвращать</div>
+            <div class="n">02</div><div class="t">stat 1, 2 и 5 — не возвращать</div>
             <div class="d">Вместе $42,95 и 1 переписка. stat 3 ($9,71) и stat 4 ($4,72) — данных мало, можно оставить только как дублёров к stat 6.</div>
           </div>
           <div class="reco">
-            <div class="n">04</div><div class="t">Одна группа вместо двух</div>
-            <div class="d">Обе группы сейчас не показываются. При перезапуске — одна группа с stat 6 и новыми вариациями, чтобы бюджет не размывался между дублями.</div>
+            <div class="n">03</div><div class="t">Показы недорогие — решает креатив</div>
+            <div class="d">CPM в группах 303 — $5,97, дешевле, чем в Luxury ($6,53–6,78). stat 6 даёт 1,86 переписки на 1000 показов, остальные креативы вместе — 0,34: в 5,5 раза меньше.</div>
+          </div>
+          <div class="reco">
+            <div class="n">04</div><div class="t">Аудитория не выгорела</div>
+            <div class="d">Частота по объявлениям — 1,03–1,41 за месяц: каждое объявление человек видел в среднем 1–1,4 раза. У stat 6 есть запас, чтобы поднимать бюджет без роста цены из-за повторных показов.</div>
           </div>
         </div>
       </div>
       <div class="bottom-row" style="justify-content:flex-end; border-top:none;">
-        <span class="slide-no"><b class="num">03</b> / 03</span>
+        <span class="slide-no"><b class="num">04</b> / 04</span>
       </div>
     </section>
 
