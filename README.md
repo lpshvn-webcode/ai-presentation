@@ -103,6 +103,11 @@ PDF получит не тот шрифт, что HTML — см. «Экспор�
 [`shared/references/kp-303cult-guide.md`](shared/references/kp-303cult-guide.md);
 расчёт цен — [`pricing.md`](shared/references/pricing.md).
 
+## Аудиты и отчёты 303.cult
+
+Правила упаковки, чек-листы и реестр выпущенных аудитов — [`shared/references/audit-packaging-guide.md`](shared/references/audit-packaging-guide.md).
+Каталог готовых композиций (24 шаблона слайдов) — [`html/audit-templates/index.html`](html/audit-templates/index.html).
+
 ## Самодостаточный HTML (важно перед тем, как делиться файлом)
 
 Пока `index.html` подключает `shared/css/deck.css` и `shared/js/deck.js`
